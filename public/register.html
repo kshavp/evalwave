@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+</head>
+<body>
+
+  <form action="/register" method="post" onsubmit="return validateForm()">
+    <input placeholder="Email" type="email" name="email" id="email" required>
+    <input placeholder="First Name" type="text" name="f_name" id="fname" required>
+    <input placeholder="Last Name" type="text" name="l_name" id="lname" required>
+    <input placeholder="New Password" type="password" name="pass" id="password" required>
+    <input placeholder="Retype Password" type="password" name="re_pass" id="re_password" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+
+      var email = document.getElementById('email').value;
+      var fname = document.getElementById('fname').value;
+      var lname = document.getElementById('lname').value;
+      var password = document.getElementById('password').value;
+      var re_password = document.getElementById('re_password').value;
+
+      if (email === '' || fname === '' || lname === '' || password === '' || re_password === '') {
+        alert('Please fill in all the required fields.');
+        return false;
+      }
+
+      if (password !== re_password) {
+        alert('Passwords do not match. Please retype your password.');
+        return false;
+      }
+
+
+      return true;
+    }
+  </script>
+
+</body>
+</html>
